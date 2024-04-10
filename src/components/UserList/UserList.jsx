@@ -11,7 +11,7 @@ function UserList() {
   const UserUrl = "https://api.github.com/users"
 
 
-  async function downloadUser(){
+  async function downloadUsers(){
     const response = await axios.get(UserUrl);
     const userResults = response.data;
 
@@ -29,7 +29,7 @@ function UserList() {
   }
 
   useEffect(() => {
-    downloadUser()
+    downloadUsers()
   }, [setUserList]);
   
   return (
@@ -37,7 +37,7 @@ function UserList() {
       <div className='user-list'>
         {
           (isLoading) ? ': Data Downloading...' : 
-            userList.map((u) => <UserProfile name={u.name} image={u.image} key={u.id}/>)
+            userList.map((u) => <UserProfile name={u.name} image={u.image} key={u.id} login={u.name}/>)
         }
       </div>
     </div>

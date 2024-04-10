@@ -24,10 +24,12 @@
   font-size: 20px;
   letter-spacing: 1px;
   color: white;
+  text-align: center;
 }
 
 span {
-  margin-top: 1rem;
+  display: block;
+  margin: 1rem 1.5rem 0 1.5rem;
   padding: 0.3rem 1.2rem;
   border-style: none;
   border: 1px solid turquoise;
@@ -36,6 +38,7 @@ span {
   color: white;
   box-sizing: border-box;
   font-size: 15px;
+  text-align: center;
 }
 
 span:hover {

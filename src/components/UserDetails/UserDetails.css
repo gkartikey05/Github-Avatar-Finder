@@ -1,0 +1,40 @@
+.user-detail-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.detail-wrapper {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 250px;
+  width: 100%;
+  height: 350px;
+  border: 1px solid gray;
+  background-color: rgba(0, 0, 128, 0.267);
+  font-family: sans-serif;
+}
+
+.user-detail-image {
+  width: 180px;
+  height: 180px;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  border: 6px solid rgb(46, 168, 156);
+  border-radius: 50%;
+}
+
+.user-detail-name {
+  margin-top: 1rem;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.user-detail-name > div {
+  display: inline;
+  font-size: 18px;
+  letter-spacing: 2px;
+}
