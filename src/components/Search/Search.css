@@ -1,0 +1,35 @@
+.search-wrapper{
+  margin-top: 1.5rem;
+  position: relative;
+}
+
+input{
+  width: 500px;
+  padding: 1rem 2rem;
+  font-size: 15px;
+  outline: none;
+  box-sizing: border-box;
+  border-radius: 50px;
+  border-style: none;
+  border: 1px solid;
+  position: relative;
+}
+
+button {
+  position: absolute;
+  right: 1px;
+  top: 1px;
+  padding: 1rem 2rem;
+  background-color: teal;
+  color: white;
+  font-size: 15px;
+  border-top-right-radius: 2rem;
+  border-bottom-right-radius: 2rem;
+  box-sizing: border-box;
+  border-style: none;
+}
+
+button:hover {
+  cursor: pointer;
+  box-sizing: border-box;
+}

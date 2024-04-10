@@ -1,0 +1,43 @@
+.user-profile {
+  flex-basis: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 180px;
+  width: 100%;
+  height: 250px;
+  border: 1px solid gray;
+  background-color: rgba(0, 0, 128, 0.267);
+  font-family: sans-serif;
+}
+
+.user-image {
+  width: 120px;
+  height: 120px;
+  margin-top: 1rem;
+  border: 4px solid rgb(46, 168, 156);
+  border-radius: 50%;
+}
+
+.user-name {
+  margin-top: 0.75rem;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: white;
+}
+
+span {
+  margin-top: 1rem;
+  padding: 0.3rem 1.2rem;
+  border-style: none;
+  border: 1px solid turquoise;
+  background-color: teal;
+  border-radius: 5px;
+  color: white;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+span:hover {
+  cursor: pointer;
+}
