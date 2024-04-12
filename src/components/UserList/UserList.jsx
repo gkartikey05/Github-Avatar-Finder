@@ -1,47 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import UserProfile from '../UserProfile/UserProfile';
+import useUserList from '../../hooks/useUserList';
 import './UserList.css'
 
 
 function UserList() {
-  const [userList, setUserList] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  const UserUrl = "https://api.github.com/users"
-
-
-  async function downloadUsers(){
-    const response = await axios.get(UserUrl);
-    const userResults = response.data;
-
-    const result = userResults.map((userData) => {
-      return {
-        id: userData.id,
-        name: userData.login,
-        image: userData.avatar_url,
-      };
-    })
-
-    console.log(result);
-    setUserList(result);
-    setIsLoading(false);
-  }
-
-  useEffect(() => {
-    downloadUsers()
-  }, [setUserList]);
+  const [userListState] = useUserList();
   
   return (
-    <div className='user-list-wrapper'>
-      <div className='user-list'>
-        {
-          (isLoading) ? ': Data Downloading...' : 
-            userList.map((u) => <UserProfile name={u.name} image={u.image} key={u.id} login={u.name}/>)
-        }
+    <div className="user-list-wrapper">
+      <div className="user-list">
+        {userListState.isLoading
+          ? ": Data Downloading..."
+          : userListState.userList.map((u) => (
+              <UserProfile
+                name={u.name}
+                image={u.image}
+                key={u.id}
+                login={u.name}
+              />
+            ))}
       </div>
     </div>
-  )
+  );
 }
 
 export default UserList;

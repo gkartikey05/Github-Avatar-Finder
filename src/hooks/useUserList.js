@@ -1,59 +1,47 @@
-// import axios from "axios";
-// import { useEffect, useState } from "react";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-// function useUserList() {
-//   const [userListState, setUserListState] = useState({
-//     userList: [],
-//     isLoading: true,
-//     userUrl: "https://api.github.com/users",
-//     nextUrl: "",
-//     prevUrl: "",
-//   });
+function useUserList() {
+  const [userListState, setUserListState] = useState({
+    userList: [],
+    isLoading: true,
+    UserUrl: "https://api.github.com/users",
+  });
 
-//   async function downloadUser() {
-//     setUserListState((state) => ({
-//       ...state,
-//       isLoading: true,
-//     }));
+  async function downloadUsers() {
+    try {
+      setUserListState((state) => ({
+        ...state,
+        isLoading: true,
+      }));
 
-//     const response = await axios.get(userListState.userUrl); // This downloads list of 20 users
-//     const userResults = response.data.results; // We get the array of users from the response
+      const response = await axios.get(userListState.UserUrl);
+      const userResults = response.data;
 
-//     setUserListState((state) => ({
-//       ...state,
-//       nextUrl: response.data.next,
-//       prevUrl: response.data.previous,
-//     }));
+      const result = userResults.map((userData) => {
+        return {
+          id: userData.id,
+          name: userData.login,
+          image: userData.avatar_url,
+        };
+      });
 
-//     const userResultPromise = userResults.map((user) =>
-//       axios.get(user.url)
-//     );
+      console.log("List", result);
+      setUserListState((state) => ({
+        ...state,
+        userList: result,
+        isLoading: false,
+      }));
 
-//     // Passing that promise to the axios.all
-//     const userData = await axios.all(userResultPromise); // Array of 20 user detailed data
+    } catch {
+      console.log('Something went wrong, please try later')
+    }
+  }
 
-//     // Now iterate on the data of each user
-//     const userListResult = userData.map((userData) => {
-//       const user = userData.data;
-//       return {
-//         id: user.id,
-//         name: user.name,
-//         image: user.sprites.other.dream_world.front_default,
-//         types: user.types,
-//       };
-//     });
-//     setUserListState((state) => ({
-//       ...state,
-//       userList: userListResult,
-//       isLoading: false,
-//     }));
-//   }
+  useEffect(() => {
+    downloadUsers();
+  }, [userListState.UserUrl]);
+  return [userListState, setUserListState];
+}
 
-//   useEffect(() => {
-//     downloadUser();
-//   }, [userListState.userUrl]);
-
-//   return [userListState, setUserListState];
-// }
-
-// export default useUserList;
+export default useUserList
