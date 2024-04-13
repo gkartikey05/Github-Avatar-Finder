@@ -34,7 +34,7 @@ function useUserList() {
       }));
 
     } catch {
-      console.log('Something went wrong, please try later')
+      console.log('API server limit reached, please try after sometime!')
     }
   }
 

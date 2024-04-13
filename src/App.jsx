@@ -5,8 +5,8 @@ import './App.css'
 function App() {
   return (
     <div className="finder-app">
-      <h1>
-        <Link to="/">GitHub Avatar Finder</Link>
+      <h1 className='heading'>
+        <Link to="/">GitHub User Finder</Link>
       </h1>
       <CustomRoutes />
     </div>

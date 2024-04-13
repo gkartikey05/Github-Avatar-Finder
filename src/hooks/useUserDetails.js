@@ -17,6 +17,12 @@ function useUserDetails(username, name) {
         login: response.data.login,
         image: response.data.avatar_url,
         name: response.data.name,
+        location: response.data.location,
+        followers: response.data.followers,
+        following: response.data.following,
+        public_repos: response.data.public_repos,
+        created_at: response.data.created_at,
+        html_url: response.data.html_url,
       });
     } catch {
       console.log("Invalid User or Username");

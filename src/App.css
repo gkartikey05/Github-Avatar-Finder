@@ -1,17 +1,16 @@
 .finder-app {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-h1 {
+.heading {
   color: white;
   font-size: 40px;
-  font-family: sans-serif;
   text-align: center;
-  margin-top: 1rem;
-  margin-bottom: 0;
-  letter-spacing: 0.1rem;
+  letter-spacing: 0.4rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid grey;
 }
 
 a {

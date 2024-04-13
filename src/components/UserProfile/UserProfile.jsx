@@ -9,7 +9,7 @@ function UserProfile({name, image, login}) {
           <img className="user-image" src={image} alt={name} />
         </div>
         <div className="user-name">{name}</div>
-        <span>View</span>
+        <button id='view'>View</button>
       </Link>
     </div>
   )

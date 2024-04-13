@@ -1,6 +1,7 @@
 import UserProfile from '../UserProfile/UserProfile';
 import useUserList from '../../hooks/useUserList';
 import './UserList.css'
+import Loading from '../Loading/Loading';
 
 
 function UserList() {
@@ -10,7 +11,7 @@ function UserList() {
     <div className="user-list-wrapper">
       <div className="user-list">
         {userListState.isLoading
-          ? ": Data Downloading..."
+          ? <Loading/>
           : userListState.userList.map((u) => (
               <UserProfile
                 name={u.name}
